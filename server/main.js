@@ -6,7 +6,7 @@ require('dotenv').config();
 
 const PORT = 9012;
 
-const subscriptionsSet = new Set();
+const subscriptionsMap = new Map();
 
 const app = express();
 app.use(express.json());
@@ -26,7 +26,7 @@ app.get('/vapidPublicKey', (req, res) => {
 
 app.post('/subscribe', (req, res) => {
   const { subscription } = req.body;
-  subscriptionsSet.add(subscription);
+  subscriptionsMap.put(JSON.stringify(subscription), subscription);
   res.sendStatus(201);
 });
 
@@ -36,7 +36,7 @@ app.get('/push/:message', async (req, res) => {
   const options = { TTL: 5 };
 
   let bienTodo = true;
-  for (const subscription of subscriptionsSet) {
+  for (const subscription of subscriptionsMap.values()) {
     try {
       await webpush.sendNotification(subscription, payload, options);
     } catch (error) {

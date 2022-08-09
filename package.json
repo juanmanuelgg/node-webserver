@@ -7,7 +7,7 @@
     "web"
   ],
   "scripts": {
-    "build": "rm server/public/* && webpack --mode production && cp web/assets/* server/public/",
+    "build": "rm -rf server/public && webpack --mode production && cp web/assets/* server/public/",
     "start": "npm start --workspace=server"
   },
   "keywords": [

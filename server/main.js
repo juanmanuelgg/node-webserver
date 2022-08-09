@@ -26,7 +26,8 @@ app.get('/vapidPublicKey', (req, res) => {
 
 app.post('/subscribe', (req, res) => {
   const { subscription } = req.body;
-  subscriptionsMap.put(JSON.stringify(subscription), subscription);
+  subscriptionsMap.set(JSON.stringify(subscription), subscription);
+  console.log('/subscribe, # clientes:', subscriptionsMap.size);
   res.sendStatus(201);
 });
 

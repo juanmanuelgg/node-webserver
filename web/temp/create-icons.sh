@@ -26,9 +26,6 @@ function main () {
         exit 1
     fi
 
-    if [ -f favicon.ico ]; then rm favicon.ico; fi
-    if [ -f favicon.png ]; then rm favicon.png; fi
-
     convert -density 256x256 -background transparent favicon.svg -define icon:auto-resize -colors 256 favicon.ico
     convert -density 256x256 -background transparent favicon.svg -define icon:auto-resize -colors 256 favicon.png
 

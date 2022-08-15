@@ -1,5 +1,5 @@
 import dotenv from 'dotenv';
-import express, { json, static as lol } from 'express';
+import express, { json, static as staticFiles } from 'express';
 import rateLimit from 'express-rate-limit';
 import { dirname, join, resolve } from 'path';
 import { fileURLToPath } from 'url';
@@ -20,6 +20,8 @@ const limiter = rateLimit({
 
 const app = express();
 app.use(json());
+// Apply the rate limiting middleware to all requests
+app.use(limiter);
 
 // Key creation: console.log(webpush.generateVAPIDKeys());
 webpush.setVapidDetails(
@@ -30,7 +32,7 @@ webpush.setVapidDetails(
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
-app.use(lol(join(__dirname, 'public')));
+app.use(staticFiles(join(__dirname, 'public')));
 
 app.get('/vapidPublicKey', (req, res) => {
   res.send(process.env.VAPID_PUBLIC_KEY);
@@ -68,9 +70,6 @@ app.get('/service-worker.js', (req, res) => {
 app.get('/*', (req, res) => {
   res.sendFile(join(__dirname, 'public', 'index.html'));
 });
-
-// Apply the rate limiting middleware to all requests
-app.use(limiter);
 
 app.listen(PORT, console.log(`App on http://localhost:${PORT}`));
 // https://create-react-app.dev/docs/deployment/

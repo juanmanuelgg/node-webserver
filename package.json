@@ -8,7 +8,8 @@
   ],
   "scripts": {
     "build": "rm -rf server/public && webpack --mode production",
-    "start": "npm start --workspace=server"
+    "start": "npm start --workspace=server",
+    "format": "prettier . --write"
   },
   "keywords": [
     "webserver",
@@ -23,6 +24,7 @@
     "babel-loader": "^8.2.5",
     "copy-webpack-plugin": "^11.0.0",
     "html-webpack-plugin": "^5.5.0",
+    "prettier": "3.1.0",
     "webpack": "^5.76.0",
     "webpack-cli": "^4.10.0"
   }

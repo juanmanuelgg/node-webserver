@@ -1,0 +1,9 @@
+{
+  "recommendations": [
+    "esbenp.prettier-vscode",
+    "PKief.material-icon-theme",
+    "eamodio.gitlens",
+    "Gruntfuggly.todo-tree",
+    "ms-azuretools.vscode-docker"
+  ]
+}

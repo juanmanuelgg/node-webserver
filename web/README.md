@@ -3,9 +3,11 @@
 ## Crear los iconos que se requieren para ser una PWA
 
 ### Crear un maskeable icon
+
 [Crear maskeable para el manifest.json](https://maskable.app/editor)
 
 ### Transformar imagenes con imagemagick
+
 ```bash
 sudo apt update
 sudo apt install imagemagick

@@ -1,3 +1,3 @@
-import {register} from './serviceWorker'
+import { register } from "./serviceWorker";
 
 register();

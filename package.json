@@ -1,6 +1,6 @@
 {
   "name": "webserver",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A small node Web server for a PWA client.",
   "workspaces": [
     "server",
@@ -8,7 +8,8 @@
   ],
   "scripts": {
     "build": "rm -rf server/public && webpack --mode production",
-    "start": "npm start --workspace=server"
+    "start": "npm start --workspace=server",
+    "format": "prettier . --write"
   },
   "keywords": [
     "webserver",
@@ -24,7 +25,8 @@
     "copy-webpack-plugin": "^11.0.0",
     "cypress": "^10.6.0",
     "html-webpack-plugin": "^5.5.0",
-    "webpack": "^5.74.0",
+    "prettier": "3.1.0",
+    "webpack": "^5.96.1",
     "webpack-cli": "^4.10.0"
   }
 }

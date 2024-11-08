@@ -34,7 +34,6 @@ jobs:
           platforms: linux/amd64,linux/arm64
           push: true
           tags: |
-            jmgonzalezgarzon/webserver:latest
-            jmgonzalezgarzon/webserver:1.0.1
             ghcr.io/juanmanuelgg/webserver:latest
             ghcr.io/juanmanuelgg/webserver:1.0.1
+          # jmgonzalezgarzon/webserver:latest, jmgonzalezgarzon/webserver:1.0.1
